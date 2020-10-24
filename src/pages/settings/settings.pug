@@ -1,4 +1,13 @@
+include ../../components/tabs/tabs
+
+- var tabList = ['Profile', 'Account', 'Price Plans']
+
 .settings__sidebar
 	include ../../components/sidebar/sidebar
 .settings__offcanvas
 	include ../../components/offcanvas/offcanvas
+.settings__content
+	+tabs(tabList, 'settings-tabs')
+	ul.uk-switcher
+		each tab in tabList
+			p #{tab}

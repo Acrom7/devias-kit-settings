@@ -2,11 +2,12 @@
 @import "theme/global"
 @import "theme/base"
 @import "theme/offcanvas"
+@import "theme/tab"
 // 2. Import default variables and available mixins.
 @import "../node_modules/uikit/src/scss/variables"
 @import "../node_modules/uikit/src/scss/mixins"
 // 3. Your custom mixin overwrites.
-
+@import "theme/tab-mixin"
 // 4. Import UIkit
 @import "../node_modules/uikit/src/scss/uikit"
 // 5. My own styles
@@ -16,3 +17,4 @@
 @import "components/sidebar/sidebar-nav"
 @import "pages/settings/settings"
 @import "components/hamburger-button/hamburger-button"
+@import "components/tabs/tabs"

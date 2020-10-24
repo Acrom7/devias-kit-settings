@@ -1,0 +1,4 @@
+mixin tabs(tabList, tabBarId)
+	ul(id=tabBarId, role='tablist', data-uk-tab)
+		each tab in tabList
+			li: a(role='tab', href="") #{tab}
