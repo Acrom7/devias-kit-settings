@@ -1,0 +1,25 @@
+.sidebar-nav
+	padding-bottom: 8px
+	&__list
+		list-style: none
+		margin: 0
+	&__item
+		padding: 16px
+		border-radius: 4px
+		margin-bottom: 8px
+		font-size: 14px
+		display: flex
+		align-items: center
+		transition: all 150ms ease-out
+		&-title
+			margin: 0
+		&:hover, &:focus
+			color: $global-primary-background
+			background-color: transparentize($global-primary-background, 0.88)
+			text-decoration: none
+			& path
+				fill: $global-primary-background
+	&__icon
+		margin-right: 8px
+		width: 24px
+		height: 24px

@@ -1,0 +1,16 @@
+include ../avatar/avatar
+
+-
+	var profile = {
+		name: 'Roman Kutepov',
+		image: 'https://eu.ui-avatars.com/api/?size=512',
+		position: 'Brain Director'
+	}
+
+.sidebar
+	.sidebar__block.sidebar__block_border_bottom
+		+avatar(profile.image, profile.name, profile.position)
+	.sidebar__block.sidebar__block_border_bottom
+		include sidebar-nav
+	.sidebar__block
+		include sidebar-support

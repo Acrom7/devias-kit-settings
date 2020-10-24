@@ -1,0 +1,9 @@
+include sidebar-mixin
+- var prefix = '/assets/'
+-
+	var supportLinks = [
+		{icon: prefix + 'support.svg', title: 'Support', path: '#'},
+	]
+
+h4.sidebar__title Support
++sidebar-block(supportLinks)

@@ -1,0 +1,10 @@
+mixin sidebar-link(icon, title, path)
+	li: a(href=path).sidebar-nav__item
+		img(src=icon, class='sidebar-nav__icon', alt='', data-uk-svg)/
+		p.sidebar-nav__item-title #{title}
+
+
+mixin sidebar-block(links)
+	ul.sidebar-nav__list
+		each item in links
+			+sidebar-link(item.icon, item.title, item.path)

@@ -1,0 +1,15 @@
+include sidebar-mixin
+- var prefix = '/assets/'
+-
+	var navLinks = [
+		{icon: prefix + 'dashboard.svg', title: 'Dashboard', path: '#'},
+		{icon: prefix + 'users.svg', title: 'Users', path: '#'},
+		{icon: prefix + 'products.svg', title: 'Products', path: '#'},
+		{icon: prefix + 'auth.svg', title: 'Authentication', path: '#'},
+		{icon: prefix + 'typography.svg', title: 'Typography', path: '#'},
+		{icon: prefix + 'image.svg', title: 'Icons & Images', path: '#'},
+	]
+
+nav.sidebar-nav
+	+sidebar-block(navLinks)
+
