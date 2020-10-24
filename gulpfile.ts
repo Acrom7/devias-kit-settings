@@ -3,23 +3,31 @@ const browserify = require('browserify')
 const tsify = require('tsify')
 const browserSync = require('browser-sync').create()
 const source = require('vinyl-source-stream')
-const fancy_log = require('fancy-log')
+const fancyLog = require('fancy-log')
 const pug = require('gulp-pug')
 const del = require('del')
 const sass = require('gulp-sass')
 const sourcemaps = require('gulp-sourcemaps')
+const autoprefixer = require('gulp-autoprefixer')
+const cleanCSS = require('gulp-clean-css')
+const argv = require('yargs').argv
+const gulpif = require('gulp-if')
+const uglify = require('gulp-uglify')
+const streamify = require('gulp-streamify')
+
+const productionEnvironment = argv.production
 
 const paths = {
-	pugEntry: './src/views/index.pug',
+	pugEntry: './src/index.pug',
 	tsEntry: 'src/main.ts',
-	sassEntry: 'src/sass/styles.sass',
+	sassEntry: 'src/styles.sass',
 	publicDir: './dist',
 	assets: 'src/assets',
 }
 
 const browserifyInstance = browserify({
 	basedir: '.',
-	debug: true,
+	debug: !productionEnvironment,
 	entries: [paths.tsEntry],
 	plugin: [tsify],
 })
@@ -33,9 +41,10 @@ function serve() {
 		notify: false,
 	})
 
-	watch('src/*.ts').on('change', series(bundleJs, browserSync.reload))
-	watch('src/views/*.pug').on('change', series(buildPug, browserSync.reload))
-	watch('src/sass/**/*.sass').on('change', buildSass)
+	watch('src/**/*.ts').on('change', series(bundleJs, browserSync.reload))
+	watch('src/**/*.pug').on('change', series(buildPug, browserSync.reload))
+	watch('src/**/*.sass').on('change', buildSass)
+	watch('src/assets/**/*').on('change', series(copyAssets, browserSync.reload))
 }
 
 function buildPug() {
@@ -49,12 +58,21 @@ function buildPug() {
 function bundleJs() {
 	return browserifyInstance
 	.bundle()
-	.on('error', fancy_log)
+	.on('error', fancyLog)
 	.pipe(source('bundle.js'))
+	.pipe(gulpif(productionEnvironment, streamify(uglify())))
 	.pipe(dest(paths.publicDir))
 }
 
 function buildSass() {
+	if (productionEnvironment) {
+		return src(paths.sassEntry)
+		.pipe(sass().on('error', sass.logError))
+		.pipe(autoprefixer(['cover 99.5%']))
+		.pipe(cleanCSS())
+		.pipe(dest(paths.publicDir))
+	}
+
 	return src(paths.sassEntry)
 	.pipe(sourcemaps.init())
 	.pipe(sass().on('error', sass.logError))
@@ -73,4 +91,3 @@ function clean() {
 
 exports.build = series(clean, parallel(bundleJs, buildPug, buildSass, copyAssets))
 exports.default = series(exports.build, serve)
-

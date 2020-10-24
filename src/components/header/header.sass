@@ -1,0 +1,41 @@
+.header
+	display: flex
+	justify-content: space-between
+	align-items: center
+	height: 64px
+	background: $global-primary-background
+	padding: 0 24px
+	&__main-page
+		display: flex
+		align-items: center
+	&__logo
+		width: 36px
+		height: 36px
+	&__company-name
+		padding-left: 10px
+		color: white
+		font-weight: 500
+		font-size: 20px
+	&__nav-actions
+		padding: 5px
+	&__action
+		background: transparent
+		border: none
+		cursor: pointer
+		width: 48px
+		height: 48px
+		margin: 0 auto
+		border-radius: 50%
+		transition: background-color 150ms
+		&:hover, &:focus
+			outline: none
+			background-color: darken($global-primary-background, 5%)
+		&:first-of-type
+			margin-right: 5px
+		&_hide_m
+			@media (max-width: $breakpoint-small-max)
+				display: none
+		&_show_m
+			display: none
+			@media (max-width: $breakpoint-small-max)
+				display: block
