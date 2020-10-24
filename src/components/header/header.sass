@@ -17,6 +17,9 @@
 		font-weight: 500
 		font-size: 20px
 	&__nav-actions
+		display: flex
+		justify-content: center
+		align-items: center
 		padding: 5px
 	&__action
 		background: transparent
@@ -32,9 +35,6 @@
 			background-color: darken($global-primary-background, 5%)
 		&:first-of-type
 			margin-right: 5px
-		&_hide_m
-			@media (max-width: $breakpoint-small-max)
-				display: none
 		&_show_m
 			display: none
 			@media (max-width: $breakpoint-small-max)
