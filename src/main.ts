@@ -1,5 +1,5 @@
 import 'uikit/dist/js/uikit.min'
-import './components/hamburger-button/hamburger-button'
+import './pages/settings/settings'
 
 const hello: string = 'Hello'
 console.log(hello)
