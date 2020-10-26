@@ -1,0 +1,55 @@
+=media-xsmall
+	@media (max-width: $breakpoint-xsmall-max)
+		@content
+
+.profile-picture
+	min-width: 375px
+	+media-xsmall
+		width: 100%
+	&__info
+		display: flex
+		justify-content: space-between
+		padding: 24px
+		border-bottom: 1px solid #E4E7EB
+		+media-xsmall
+			flex-direction: column-reverse
+			justify-content: center
+			align-items: center
+	&__name
+		font-size: 24px
+		font-weight: 500
+	&__location
+		font-size: 14px
+		color: rgba(158, 160, 165, 1)
+		margin: 0
+		padding: 0
+	&__timezone
+		@extend .profile-picture__location
+	&__name, &__location, &__timezone
+		+media-xsmall
+			text-align: center
+	&__image
+		width: 140px
+		border-radius: 13px
+		display: block
+		margin-left: auto
+		+media-xsmall
+			margin: 0 auto 16px
+	&__actions
+		padding: 10px 24px
+		display: flex
+		justify-content: space-evenly
+	&__button
+		background-color: transparent
+		border: none
+		cursor: pointer
+		padding: 12px 17px
+		font-weight: 500
+		font-size: 12px
+		border-radius: 4px
+		text-transform: uppercase
+		transition: background-color 150ms ease-out
+		&:hover, &:focus
+			background-color: transparentize($global-secondary-background, 0.88)
+		&_color_primary
+			color: $global-secondary-background
