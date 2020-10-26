@@ -1,6 +1,14 @@
 include ../../components/tabs/tabs
+include ../../components/profile-picture/profile-picture
 
 - var tabList = ['Profile', 'Account', 'Price Plans']
+-
+	var profilePicture = {
+		name: 'Adrian Stefan',
+		location: 'Rm. Valcea, Romania',
+		userLocalTime: '4:32PM (GMT-4)',
+		image: 'https://eu.ui-avatars.com/api/?size=512'
+	}
 
 .settings__sidebar
 	include ../../components/sidebar/sidebar
@@ -9,5 +17,11 @@ include ../../components/tabs/tabs
 .settings__content
 	+tabs(tabList, 'settings-tabs')
 	ul.uk-switcher
-		each tab in tabList
-			p #{tab}
+		.uk-container
+			li.settings__tab
+				+profile-picture(
+					profilePicture.name,
+					profilePicture.location,
+					profilePicture.userLocalTime,
+					profilePicture.image
+				)
