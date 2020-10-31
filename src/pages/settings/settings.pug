@@ -36,8 +36,8 @@ include ../../components/profile-notifications/profile-notifications
 	.settings__content
 		+tabs(tabList, 'settings-tabs')
 		ul.uk-switcher
-			.uk-container
-				li(class='uk-flex-center settings__tab', data-uk-grid)
+			li.uk-container
+				div(class='uk-flex-center settings__tab', data-uk-grid)
 					div(class='uk-width-1-1 uk-width-2-3@m uk-width-1-3@l')
 						+profile-picture(
 							user.firstname + ' ' + user.lastname,
