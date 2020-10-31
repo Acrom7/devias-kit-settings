@@ -36,6 +36,7 @@
     "yargs": "^16.1.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "uikit": "^3.5.8"
   }
 }
