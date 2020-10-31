@@ -3,3 +3,22 @@
 	border: 1px solid rgba(63, 63, 68, 0.005)
 	box-shadow: 0 1px 3px rgba(63, 63, 68, 0.15)
 	border-radius: 4px
+	&_border_bottom
+		border-bottom: 1px solid #E4E7EB
+	&__header
+		display: flex
+		padding: 24px 24px 8px
+		@media (max-width: $breakpoint-small)
+			flex-direction: column
+	&__caption
+		font-weight: 500
+		font-size: 16px
+		color: rgba(58, 59, 63, 1)
+		margin: 0 16px 8px 0
+		line-height: 20px
+	&__additional-info
+		margin-bottom: 8px
+		margin-top: 0
+		font-weight: 300
+		font-size: 14px
+		color: #66788A
