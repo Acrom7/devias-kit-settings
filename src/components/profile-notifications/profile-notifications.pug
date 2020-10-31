@@ -1,0 +1,33 @@
+include ../card/card
+
+mixin profile-notifications(notifications, messages)
+	+card('profile-notifications')
+		.card__header.card_border_bottom
+			h3.card__caption.uk-width-auto Notifications
+			p.card__additional-info.uk-width-expand Mange the notifications emailing
+		form(
+			class='uk-flex uk-child-width-1-1 uk-flex-wrap',
+			id='profile-notifications-form',
+			name='profile-notifications-form'
+		)
+			.profile-notifications__form.card_border_bottom
+				fieldset.profile-notifications__column(name='notifications', id='notifications-fieldset')
+					legend.profile-notifications__caption Notifications
+					each value, key in notifications
+						label.profile-notifications__label
+							input(class='uk-checkbox profile-notifications__checkbox', type='checkbox', checked=value, name=key)
+							| #{key}
+				fieldset.profile-notifications__column(name='messages', id='messages-fieldset')
+					legend.profile-notifications__caption Messages
+					each value, key in messages
+						label.profile-notifications__label
+							input(class='uk-checkbox profile-notifications__checkbox', type='checkbox', checked=value, name=key)
+							| #{key}
+			.profile-notifications__actions
+				button(
+					type='submit',
+					class='uk-button uk-button-default',
+					form='profile-notifications-form',
+					disabled
+				) Save
+		
