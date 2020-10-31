@@ -1,0 +1,9 @@
+@mixin hook-form
+	border: 1px solid rgba(0, 0, 0, 0.32)
+	border-radius: 4px
+	background-color: inherit
+	transition: border-color .2s ease
+	&:hover
+		border-color: rgba(0, 0, 0, 0.9)
+@mixin hook-form-focus
+	border: 2px solid $global-secondary-background
