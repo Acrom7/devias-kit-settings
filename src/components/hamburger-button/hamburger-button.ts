@@ -12,4 +12,4 @@ function initHamburger(offcanvasId: string): void {
 	})
 }
 
-module.exports = initHamburger
+export default initHamburger

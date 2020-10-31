@@ -1,3 +1,5 @@
-const hamburgerInit = require('../../components/hamburger-button/hamburger-button')
+import hamburgerInit from '../../components/hamburger-button/hamburger-button'
 
-hamburgerInit('offcanvas')
+window.onload = () => {
+	hamburgerInit('offcanvas')
+}
