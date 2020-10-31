@@ -1,0 +1,27 @@
+$notification-width: 350px
+.notification
+	position: fixed
+	top: 0
+	left: 50%
+	margin-left: ($notification-width / -2)
+	width: $notification-width
+	z-index: 1000
+	@media (max-width: $breakpoint-small-max)
+		width: auto
+		left: 10px
+		right: 10px
+		margin-left: 0
+	&__message
+		background-color: white
+		margin: 16px 0
+		height: 24px
+		padding: 15px
+		border: 1px solid rgba(63, 63, 68, 0.3)
+		box-shadow: 0 1px 3px rgba(63, 63, 68, 0.15)
+		border-radius: 4px
+		transition: opacity .5s ease
+		cursor: pointer
+		&_error
+			color: red
+		&_success
+			color: green
