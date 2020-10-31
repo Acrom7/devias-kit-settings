@@ -1,0 +1,33 @@
+@mixin label-as-placeholder
+	color: rgba(0, 0, 0, 0.6)
+	font-size: 16px
+	left: 5px
+	top: 8px
+@mixin label-as-header
+	top: -8px
+	font-size: 12px
+.text-field
+	position: relative
+	margin: 12px
+	&__label
+		@include label-as-placeholder
+		position: absolute
+		pointer-events: none
+		background-color: white
+		padding: 0 5px
+		transition: all 0.2s ease
+	&__input
+		&:not([value=""]) ~ .text-field__label,
+		&:focus ~ .text-field__label
+			@include label-as-header
+		&:focus ~ .text-field__label,
+		&:focus ~ .text-field__assist
+			color: $global-secondary-background
+	&__assist
+		display: none
+		font-size: 12px
+		color: rgba(0, 0, 0, 0.6)
+		padding-left: 12px
+		margin: 0
+	&_error ~ &__assist
+		display: block

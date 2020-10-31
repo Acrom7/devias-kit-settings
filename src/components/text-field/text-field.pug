@@ -1,0 +1,12 @@
+mixin text-field(value, name, label, required, assistiveText)
+	.text-field
+		input(
+			class='uk-input text-field__input',
+			name=name,
+			value=value,
+			required=required,
+			oninput="this.setAttribute('value', this.value)",
+			aria-label=label
+		)
+		label.text-field__label= label
+		p.text-field__assist= assistiveText
