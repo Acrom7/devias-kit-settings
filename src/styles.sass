@@ -4,11 +4,17 @@
 @import "theme/offcanvas"
 @import "theme/tab"
 @import "theme/container"
+@import "theme/form"
+@import "theme/grid"
+@import "theme/button"
 // 2. Import default variables and available mixins.
 @import "../node_modules/uikit/src/scss/variables"
 @import "../node_modules/uikit/src/scss/mixins"
 // 3. Your custom mixin overwrites.
+@import "theme/base-mixin"
 @import "theme/tab-mixin"
+@import "theme/form-mixin"
+@import "theme/button-mixin"
 // 4. Import UIkit
 @import "../node_modules/uikit/src/scss/uikit"
 // 5. My own styles
