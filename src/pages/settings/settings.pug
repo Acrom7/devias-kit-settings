@@ -1,27 +1,34 @@
 include ../../components/tabs/tabs
 include ../../components/profile-picture/profile-picture
+include ../../components/sidebar/sidebar
 
 - var tabList = ['Profile', 'Account', 'Price Plans']
 -
-	var profilePicture = {
-		name: 'Adrian Stefan',
+	var user = {
+		firstname: 'Adrian',
+		lastname: 'Stefan',
 		location: 'Rm. Valcea, Romania',
 		userLocalTime: '4:32PM (GMT-4)',
-		image: 'https://eu.ui-avatars.com/api/?size=512'
+		image: 'https://eu.ui-avatars.com/api/?size=512',
+		email: 'adrian_shp@yahoo.com',
+		phone: '88005553535',
+		country: 'Romania',
+		city: 'Ramnicu Valcea'
 	}
 
-.settings__sidebar
-	include ../../components/sidebar/sidebar
-.settings__offcanvas
-	include ../../components/offcanvas/offcanvas
-.settings__content
-	+tabs(tabList, 'settings-tabs')
-	ul.uk-switcher
-		.uk-container
-			li.settings__tab
-				+profile-picture(
-					profilePicture.name,
-					profilePicture.location,
-					profilePicture.userLocalTime,
-					profilePicture.image
-				)
+.settings
+	+sidebar('settings__sidebar')
+	.settings__offcanvas
+		include ../../components/offcanvas/offcanvas
+	.settings__content
+		+tabs(tabList, 'settings-tabs')
+		ul.uk-switcher
+			.uk-container
+				li(class='uk-flex-center settings__tab', data-uk-grid)
+					div(class='uk-width-1-1 uk-width-2-3@m uk-width-1-3@l')
+						+profile-picture(
+							user.firstname + ' ' + user.lastname,
+							user.location,
+							user.userLocalTime,
+							user.image
+						)

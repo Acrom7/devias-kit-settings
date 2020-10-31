@@ -7,10 +7,11 @@ include ../avatar/avatar
 		position: 'Brain Director'
 	}
 
-.sidebar
-	.sidebar__block.sidebar__block_border_bottom
-		+avatar(profile.image, profile.name, profile.position)
-	.sidebar__block.sidebar__block_border_bottom
-		include sidebar-nav
-	.sidebar__block
-		include sidebar-support
+mixin sidebar(classes)
+	.sidebar(class=classes)
+		.sidebar__block.sidebar__block_border_bottom
+			+avatar(profile.image, profile.name, profile.position)
+		.sidebar__block.sidebar__block_border_bottom
+			include sidebar-nav
+		.sidebar__block
+			include sidebar-support
