@@ -1,0 +1,30 @@
+include ../card/card
+include ../text-field/text-field
+
+mixin profile-basic(firstname, lastname, email, phone, country, city)
+	+card('profile-basic')
+		.profile-basic__header.profile-basic_border_bottom
+			h3.profile-basic__caption.uk-width-auto Basic profile
+			p.profile-basic__additional-info.uk-width-expand The information can be edited from your profile page
+		form(
+			class='uk-flex uk-child-width-1-1 uk-flex-wrap',
+			id='profile-basic-form',
+			name='profile-basic-form'
+		)
+			.profile-basic__form.profile-basic_border_bottom
+				div(class='uk-flex uk-child-width-1-1 profile-basic__row')
+					+text-field(firstname, 'firstname', 'First Name', true, 'Please specify the first name')
+					+text-field(lastname, 'lastname', 'Last Name', true, 'Please specify the last name')
+				div(class='uk-flex uk-child-width-1-1 profile-basic__row')
+					+text-field(email, 'email', 'Email', true, 'Please specify the email')
+					+text-field(phone, 'phone', 'Phone', false, 'Only digits allowed')
+				div(class='uk-flex uk-child-width-1-1 profile-basic__row')
+					+text-field(country, 'country', 'Country', false)
+					+text-field(city, 'city', 'City', false)
+			.profile-basic__actions
+				button(
+					type='submit',
+					class='uk-button uk-button-primary',
+					form='profile-basic-form',
+					disabled
+				) Save settings

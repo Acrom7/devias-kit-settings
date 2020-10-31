@@ -1,5 +1,6 @@
 include ../../components/tabs/tabs
 include ../../components/profile-picture/profile-picture
+include ../../components/profile-basic/profile-basic
 include ../../components/sidebar/sidebar
 
 - var tabList = ['Profile', 'Account', 'Price Plans']
@@ -32,3 +33,13 @@ include ../../components/sidebar/sidebar
 							user.userLocalTime,
 							user.image
 						)
+					div(class='uk-width-1-1 uk-width-2-3@m uk-width-2-3@l')
+						div
+							+profile-basic(
+								user.firstname,
+								user.lastname,
+								user.email,
+								user.phone,
+								user.country,
+								user.city
+							)
