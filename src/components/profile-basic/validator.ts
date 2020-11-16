@@ -36,6 +36,9 @@ function initValidator(elements: HTMLInputElementWithInitialValue[], submitButto
 		element.addEventListener('focus', () => {
 			removeError(element)
 		})
+		element.addEventListener('input', () => {
+			checkFormValidity(elements, submitButton)
+		})
 	}
 }
 
