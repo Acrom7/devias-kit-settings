@@ -14,6 +14,7 @@ const argv = require('yargs').argv
 const gulpif = require('gulp-if')
 const uglify = require('gulp-uglify')
 const streamify = require('gulp-streamify')
+const htmlmin = require('gulp-htmlmin')
 
 const productionEnvironment = argv.production
 
@@ -52,6 +53,7 @@ function buildPug() {
 	.pipe(pug({
 		compileDebug: true,
 	}))
+	.pipe(gulpif(productionEnvironment, htmlmin({collapseWhitespace: true})))
 	.pipe(dest(paths.publicDir))
 }
 
