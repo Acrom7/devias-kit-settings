@@ -29,12 +29,12 @@ function checkFormValidity(elements: HTMLInputElementWithInitialValue[], submitB
 
 function initValidator(elements: HTMLInputElementWithInitialValue[], submitButton: HTMLInputElement) {
 	return (element: HTMLInputElement, regex: RegExp) => {
-		const eventTypes = ['blur', 'focus', 'input']
-		eventTypes.forEach(event => {
-			element.addEventListener(event, () => {
-				setElementValidity(element, regex.test(element.value))
-				checkFormValidity(elements, submitButton)
-			})
+		element.addEventListener('blur', () => {
+			setElementValidity(element, regex.test(element.value))
+			checkFormValidity(elements, submitButton)
+		})
+		element.addEventListener('focus', () => {
+			removeError(element)
 		})
 	}
 }
