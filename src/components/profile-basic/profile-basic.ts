@@ -26,7 +26,7 @@ export default function initProfileBasicForm(): void {
 	setElementValidator(elements.email, emailRegex)
 
 	// First name validation
-	const firstnameRegex = /^[a-z ,.'-]+$/i
+	const firstnameRegex = /^[a-zа-я ,.'-]+$/i
 	setElementValidator(elements.firstname, firstnameRegex)
 
 	// Last name validation
