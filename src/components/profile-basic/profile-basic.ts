@@ -1,6 +1,7 @@
 import notification from '../notification/notification'
 import {HTMLInputElementWithInitialValue, setInitialValue} from './initialValue'
 import {initValidator} from './validator'
+import {setPhoneInputMask} from './phoneInputMask'
 
 interface SettingsFormElements extends HTMLFormControlsCollection {
 	firstname: HTMLInputElement,
@@ -34,8 +35,9 @@ export default function initProfileBasicForm(): void {
 	setElementValidator(elements.lastname, lastnameRegex)
 
 	// Phone validation
-	const phoneRegex = /^\d*$/
+	const phoneRegex = /^\+?\d{8,15}$|^$/
 	setElementValidator(elements.phone, phoneRegex)
+	setPhoneInputMask(elements.phone)
 
 	// Country and city
 	const countryRegex = /.*/
